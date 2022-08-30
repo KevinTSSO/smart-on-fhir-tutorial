@@ -69,6 +69,9 @@
 console.log(allInt);
 	  p.allInt = '<table>';
           allInt.forEach(function(ai) {
+		  console.log("AI:");
+		  console.log(ai);
+		  console.log(ai.reaction);
             p.allInt += '<tr><td>' + ai.code.text + '</td><td>';
             ai.reaction.forEach(function(ri) {
 	      p.allInt += '<b>' + ri.severity + ':</b><br />';
