@@ -20,7 +20,7 @@
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
 															*/
-															'http://loinc.org|85354-9'
+			$or: ['http://loinc.org|85354-9']
                       }
                     }
                   });
