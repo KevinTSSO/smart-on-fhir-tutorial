@@ -71,11 +71,12 @@
             p.allInt += '<tr style="border-bottom: 1pt solid black"><td>' + ai.code.text + ' (' + ai.criticality + ')</td><td>';
             if(typeof ai.reaction != 'undefined') {
               ai.reaction.forEach(function(ri) {
-	        p.allInt += '<b>' + ri.severity + ':</b><br />';
                 ri.manifestation.forEach(function(mi) {
-	          p.allInt += mi.text + '<br />';
+	          p.allInt += mi.text + ' (' + ri.severity + ')<br />';
 	        });
 	      });
+	    } else {
+		    p.allInt += '&nbsp;';
 	    }
             p.allInt += '</td></tr>';
 	  });
