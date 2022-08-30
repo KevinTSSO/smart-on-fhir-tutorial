@@ -24,7 +24,10 @@
                   });
 
 	var allInt = smart.patient.api.fetchAll({
-		type: 'AllergyIntolerance'
+		type: 'AllergyIntolerance',
+		query: {
+			clinical-status: 'active'
+		}
 	});
 
         $.when(pt, obv, allInt).fail(onError);
@@ -66,22 +69,24 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 	  p.temperature = getQuantityValueAndUnit(temperature[0]);
-	  p.allInt = '<table style="border-collapse: collapse;">';
+		console.log(allInt);
+	  p.allergyIntolerance = '<table style="border-collapse: collapse;">';
+		// p.allergyIntolerance = '<table>';
           allInt.forEach(function(ai) {
-            p.allInt += '<tr style="border-bottom: 1pt solid black"><td>' + ai.code.text + ' (' + ai.criticality + ')</td><td>';
+            p.allergyIntolerance += '<tr style="border-bottom: 1pt solid black"><td>' + ai.code.text + ' (' + ai.criticality + ')</td><td>';
             if(typeof ai.reaction != 'undefined') {
               ai.reaction.forEach(function(ri) {
                 ri.manifestation.forEach(function(mi) {
-	          p.allInt += mi.text + ' (' + ri.severity + ')<br />';
+	          p.allergyIntolerance += mi.text + ' (' + ri.severity + ')<br />';
 	        });
 	      });
 	    } else {
-		    p.allInt += '&nbsp;';
+		    p.allergyIntolerance += '&nbsp;';
 	    }
-            p.allInt += '</td></tr>';
+            p.allergyIntolerance += '</td></tr>';
 	  });
-          p.allInt += '</table>'
-		console.log(p.allInt);
+          p.allergyIntolerance += '</table>'
+		console.log(p.allergyIntolerance);
           ret.resolve(p);
         });
       } else {
@@ -106,7 +111,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temperature: {value: ''},
-      allInt: {value: ''}
+      allergyIntolerance: {value: ''}
     };
   }
 
@@ -151,7 +156,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temperature').html(p.temperature);
-    $('#allergyIntolerance').html(p.allInt);
+    $('#allergyIntolerance').html(p.allergyIntolerance);
   };
 
 })(window);
