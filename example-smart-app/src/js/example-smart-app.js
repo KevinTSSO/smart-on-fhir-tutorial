@@ -79,8 +79,8 @@ console.log(allInt);
                 ri.manifestation.forEach(function(mi) {
 	          p.allInt += mi.text + '<br />';
 	        });
-	      }
-	    });
+	      });
+	    }
             p.allInt += '</td></tr>';
 	  });
           p.allInt += '</table>'
@@ -153,6 +153,7 @@ console.log(allInt);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temperature').html(p.temperature);
+    $('#allInt').html(p.allInt);
   };
 
 })(window);
