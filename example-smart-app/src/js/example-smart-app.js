@@ -68,7 +68,7 @@
 	  p.temperature = getQuantityValueAndUnit(temperature[0]);
 	  p.allInt = '<table>';
           allInt.forEach(function(ai) {
-            p.allInt += '<tr><td>' + ai.code.text + '(' + ai.criticality + ')</td><td>';
+            p.allInt += '<tr style="border-bottom: 1pt solid black"><td>' + ai.code.text + ' (' + ai.criticality + ')</td><td>';
             if(typeof ai.reaction != 'undefined') {
               ai.reaction.forEach(function(ri) {
 	        p.allInt += '<b>' + ri.severity + ':</b><br />';
