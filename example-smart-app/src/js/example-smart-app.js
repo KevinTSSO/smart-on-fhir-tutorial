@@ -73,7 +73,7 @@ console.log(allInt);
             $(this).reaction.each(function(ri) {
 	      p.allInt += '<b>' + this.severity + ':</b><br />';
               $(this).manifestation.each(function(mi) {
-	        p.allInt += $(this).text.'<br />';
+	        p.allInt += $(this).text + '<br />';
 	      });
 	    });
             p.allInt += '</td></tr>';
