@@ -72,12 +72,14 @@ console.log(allInt);
 		  console.log("AI:");
 		  console.log(ai);
 		  console.log(ai.reaction);
-            p.allInt += '<tr><td>' + ai.code.text + '</td><td>';
-            ai.reaction.forEach(function(ri) {
-	      p.allInt += '<b>' + ri.severity + ':</b><br />';
-              ri.manifestation.forEach(function(mi) {
-	        p.allInt += mi.text + '<br />';
-	      });
+            p.allInt += '<tr><td>' + ai.code.text + '(' + ai.criticality + ')</td><td>';
+            if(typeof ai.reaction != 'undefined') {
+              ai.reaction.forEach(function(ri) {
+	        p.allInt += '<b>' + ri.severity + ':</b><br />';
+                ri.manifestation.forEach(function(mi) {
+	          p.allInt += mi.text + '<br />';
+	        });
+	      }
 	    });
             p.allInt += '</td></tr>';
 	  });
