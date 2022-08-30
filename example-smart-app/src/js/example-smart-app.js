@@ -68,12 +68,12 @@
 	  p.temperature = getQuantityValueAndUnit(temperature[0]);
 console.log(allInt);
 	  p.allInt = '<table>';
-          allInt.each(function(ai) {
+          allInt.forEach(function(ai) {
             p.allInt += '<tr><td>' + ai.code.text + '</td><td>';
-            $(this).reaction.each(function(ri) {
-	      p.allInt += '<b>' + this.severity + ':</b><br />';
-              $(this).manifestation.each(function(mi) {
-	        p.allInt += $(this).text + '<br />';
+            ai.reaction.forEach(function(ri) {
+	      p.allInt += '<b>' + ri.severity + ':</b><br />';
+              ri.manifestation.forEach(function(mi) {
+	        p.allInt += mi.text + '<br />';
 	      });
 	    });
             p.allInt += '</td></tr>';
