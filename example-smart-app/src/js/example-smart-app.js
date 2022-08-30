@@ -67,7 +67,18 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 	  p.temperature = getQuantityValueAndUnit(temperature[0]);
 console.log(allInt);
-	  p.allInt = allInt.text.div;
+	  p.allInt = '<table>';
+          allInt.each(function(ai)) {
+            p.allInt += '<tr><td>' + ai.code.text + '</td><td>';
+            $(this).reaction.each(function(ri)) {
+	      p.allInt += '<b>' + this.severity + ':</b><br />';
+              $(this).manifestation.each(function(mi)) {
+	        p.allInt += $(this).text.'<br />';
+	      }
+	    }
+            p.allInt += '</td></tr>';
+	  };
+          p.allInt += '</table>'
           ret.resolve(p);
         });
       } else {
