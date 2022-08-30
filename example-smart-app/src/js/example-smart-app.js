@@ -66,12 +66,8 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 	  p.temperature = getQuantityValueAndUnit(temperature[0]);
-console.log(allInt);
 	  p.allInt = '<table>';
           allInt.forEach(function(ai) {
-		  console.log("AI:");
-		  console.log(ai);
-		  console.log(ai.reaction);
             p.allInt += '<tr><td>' + ai.code.text + '(' + ai.criticality + ')</td><td>';
             if(typeof ai.reaction != 'undefined') {
               ai.reaction.forEach(function(ri) {
@@ -84,6 +80,7 @@ console.log(allInt);
             p.allInt += '</td></tr>';
 	  });
           p.allInt += '</table>'
+		console.log(p.allInt);
           ret.resolve(p);
         });
       } else {
