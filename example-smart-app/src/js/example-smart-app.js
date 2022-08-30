@@ -66,7 +66,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 	  p.temperature = getQuantityValueAndUnit(temperature[0]);
-	  p.allInt = '<table>';
+	  p.allInt = '<table style="border-collapse: collapse;">';
           allInt.forEach(function(ai) {
             p.allInt += '<tr style="border-bottom: 1pt solid black"><td>' + ai.code.text + ' (' + ai.criticality + ')</td><td>';
             if(typeof ai.reaction != 'undefined') {
