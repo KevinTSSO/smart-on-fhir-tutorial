@@ -150,7 +150,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temperature').html(p.temperature);
-    $('#allInt').html(p.allInt);
+    $('#allergyIntolerance').html(p.allInt);
   };
 
 })(window);
