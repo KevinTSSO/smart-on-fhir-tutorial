@@ -25,7 +25,7 @@
 
 	var allInt = smart.patient.api.fetchAll({
 		type: 'AllergyIntolerance'
-	)};
+	});
 
         $.when(pt, obv, allInt).fail(onError);
 	      
